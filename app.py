@@ -1,5 +1,5 @@
 # import Flask
-from flask import Flask
+from flask import Flask, jsonify
 import numpy as np
 import pandas as pd
 import sqlalchemy
@@ -36,7 +36,7 @@ app = Flask(__name__)
 
 # 1. Home page route.
 @app.route("/")
-def home():
+def welcome():
     print("Server received request from 'Home' page...")
     return (
         f"Welcome to my 'Home'page! API! <br/>"
@@ -57,7 +57,7 @@ def index():
 
 # 3. Precipitation
 @app.route("/api/v1.0/<precipitation>")
-def show_precipitation(precipitation):
+def show_precipitation():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -78,7 +78,7 @@ return jsonify(all_months)
 
 # 4. Stations
 @app.route("/api/v1.0/<stations>")
-def show_stations(stations):
+def show_stations():
 
 
 
