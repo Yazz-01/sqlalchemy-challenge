@@ -8,11 +8,14 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     print("Server received request from 'Home' page...")
-    return "Welcome to my page!"
+    return "Welcome to my 'Home'page!"
 
 
 # 2. List all routes that are available.
-
+@app.route("/about")
+def about():
+    print("Server received request from 'About' page...")
+    return "Welcome to my 'About' page!"
 
 /api/v1.0/precipitation
 
