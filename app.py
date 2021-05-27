@@ -8,14 +8,21 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     print("Server received request from 'Home' page...")
-    return "Welcome to my 'Home'page!"
+    return (
+        f"Welcome to my 'Home'page! API! <br/>"
+    )
 
 
 # 2. Index listing all routes that are available.
-@app.route("/about")
+@app.route("/index")
 def index():
     print("Server received request from 'Index' page...")
-    return "Available Routes:"
+    return (
+        f"AvailableRoutes:<br/>"
+        f"/api/v1.0/precipitation <br/>"
+        f"/api/v1.0/stations<br/>"
+        f"/api/v1.0/tobs<br/>"
+    )
 
 
 # 3. Precipitation
