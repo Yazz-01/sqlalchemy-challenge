@@ -7,6 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 import datetime as dt
+import csv
 
 
 #################################################
@@ -60,7 +61,7 @@ def index():
 
 # 3. Precipitation
 @app.route("/api/v1.0/<precipitation>")
-def show_precipitation(precipitation):
+def precipitation():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -72,7 +73,7 @@ def show_precipitation(precipitation):
     session.close()
 
     # Convert list of tuples into normal list
-    all_months = list(np.rael(twelve_months_precipt))
+    all_months = list(np.ravel(twelve_months_precipt))
 
 return jsonify(all_months)
 
@@ -81,7 +82,7 @@ return jsonify(all_months)
 
 # 4. Stations
 @app.route("/api/v1.0/<stations>")
-def show_stations(stations):
+def stations():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
@@ -95,9 +96,9 @@ def show_stations(stations):
     session.close()
 
     # Convert list of tuples into normal list
-    stations_active_month = list(np.rael(active_month))
+    all_stations = list(np.ravel(active_month))
 
-return jsonify(stations_active_month)
+return jsonify(all_stations)
 
 
 
@@ -108,8 +109,18 @@ return jsonify(stations_active_month)
 # 5. Dates and temperature observations 
 # of the most active station for the last year of data.
 @app.route("/api/v1.0/<tobs>")
-def show_stations(tobs):
-    return jsonify()
+def tobs():
+    
+    
+    
+    
+    
+    
+    
+    
+return jsonify()
+
+
 
 # Return a JSON list of the minimum temperature, 
 # the average temperature, and the max temperature 
