@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 import datetime as dt
 import csv
+import json
 
 
 #################################################
@@ -103,22 +104,41 @@ return jsonify(all_stations)
 
 
 
-
-
-
 # 5. Dates and temperature observations 
 # of the most active station for the last year of data.
 @app.route("/api/v1.0/<tobs>")
 def tobs():
     
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    #File names
+    measurem_hawaii_filename="hawaii_measurements.csv"
+    stations_hawaii_filename="hawaii_stations.csv"
     
+   with open(measurem_hawaii_filename, "r") as csvfile:
+   
+   with open(stations_hawaii_filename, "r") as csvfile:
+   
+   
+    ## Combine the data into a single dataset
+    join_measur_station= [Measurements.station,Measurements.date, Measurements.prcp,Measurements.tobs,\
+                        Stations.station,Stations.name,Stations.latitude,Stations.longitude,\
+                           Stations.elevation 
+        ]
+    same_station= session.query(*join_measur_station).\
+        filter(Measurements.station == Stations.station).all()
     
+    #for i in same_station:
+        #()
     
-    
-    
-    
-    
-return jsonify()
+  # Close session
+    session.close()
+
+    # Convert list of tuples into normal list
+   # all_stations = list(np.ravel(active_month))
+trans_date= to_datetime("date")
+#return jsonify(all_stations)
 
 
 
