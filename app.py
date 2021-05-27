@@ -12,15 +12,18 @@ import datetime as dt
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///titanic.sqlite")
+engine = create_engine("sqlite:///hawaii.sqlite")
 
-# reflect an existing database into a new model
+# Reflect an existing database into a new model
 Base = automap_base()
-# reflect the tables
+# Reflect the tables
 Base.prepare(engine, reflect=True)
 
-# Save reference to the table
-Passenger = Base.classes.passenger
+
+# Save references to each table- Assigning the class to a variable Station and Measurement
+Station= Base.classes.station
+Measurement= Base.classes.measurement
+
 
 #################################################
 # Flask Setup
@@ -78,12 +81,23 @@ return jsonify(all_months)
 
 # 4. Stations
 @app.route("/api/v1.0/<stations>")
-def show_stations():
+def show_stations(stations):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
 
+    # Using the most active station id
+    # Query the last 12 months of temperature observation data for this station
+    active_month= session.query(Measurement.tobs).\
+    filter(Measurement.station=='USC00519281').\
+    filter(Measurement.date.between('2016-08-23', '2017-08-23')).all()
+    
+    # Close session
+    session.close()
 
+    # Convert list of tuples into normal list
+    stations_active_month = list(np.rael(active_month))
 
-
-return jsonify()
+return jsonify(stations_active_month)
 
 
 
