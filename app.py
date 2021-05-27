@@ -57,7 +57,7 @@ def index():
 
 # 3. Precipitation
 @app.route("/api/v1.0/<precipitation>")
-def show_precipitation():
+def show_precipitation(precipitation):
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
