@@ -36,7 +36,7 @@ A jupyter notebook and hawaii.sqlite files were used to complete the climate ana
 
 Fig. 1 is the Pandas summary statistics for the precipitation.
 
-![last_months_of_precipitation_data.png]
+![last_months_of_precipitation](https://github.com/Yazz-01/sqlalchemy-challenge/blob/main/output_figures/last_months_of_precipitation_data.png)
 
 Station Analysis
 
