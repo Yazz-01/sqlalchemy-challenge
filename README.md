@@ -38,36 +38,33 @@ Fig. 1 is the Pandas summary statistics for the precipitation.
 
 ![last_months_of_precipitation](https://github.com/Yazz-01/sqlalchemy-challenge/blob/main/output_figures/last_months_of_precipitation_data.png)
 
-Station Analysis
 
 
-Design a query to calculate the total number of stations in the dataset.
+# Station Analysis
 
 
-Design a query to find the most active stations (i.e. which stations have the most rows?).
+1. Designed a query to calculate the total number of stations in the dataset.
 
 
-List the stations and observation counts in descending order.
+2. Designed a query to find the most active stations (i.e. which stations have the most rows).
 
 
-Which station id has the highest number of observations?
+3. List the stations and observation counts in descending order.
 
 
-Using the most active station id, calculate the lowest, highest, and average temperature.
+4. The station id that has the highest number of observations.
 
 
-Hint: You will need to use a function such as func.min, func.max, func.avg, and func.count in your queries.
+5. Using the most active station id, calculate the lowest, highest, and average temperature. This step required a function such as func.min, func.max, func.avg, and func.count in queries.
 
 
+6. Designed a query to retrieve the last 12 months of temperature observation data (TOBS).
 
 
-Design a query to retrieve the last 12 months of temperature observation data (TOBS).
+7. Filtered by the station with the highest number of observations.
 
 
-Filter by the station with the highest number of observations.
+8. Query the last 12 months of temperature observation data for this station.
 
 
-Query the last 12 months of temperature observation data for this station.
-
-
-Plot the results as a histogram with bins=12.
+9. Plot the results as a histogram with bins=12.
