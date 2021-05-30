@@ -68,3 +68,5 @@ Fig. 1 is the Pandas summary statistics for the precipitation.
 
 
 9. Plot the results as a histogram with bins=12.
+
+!last_months_temp](https://github.com/Yazz-01/sqlalchemy-challenge/blob/main/output_figures/last_months_of_temp_data.png)
